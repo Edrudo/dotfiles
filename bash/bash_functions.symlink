@@ -52,6 +52,7 @@ bashfuncs () {
   echo 'loadenv  - Exports an ENV file into the current shell session'
   echo '           Provide a file path or it defaults to "./.env" e.g.'
   echo '           loadenv "../../.my_env"'
+  echo 'aws_login - Log docker into ECR using $ECR_REGISTRY (and optional $AWS_ECR_REGION)'
   echo 'lports   - List all open ports and their PIDs, use `kill <PID>` to close a port'
 
   echo ''
@@ -220,6 +221,13 @@ loadenv () {
     [[ -z "$env_var" || "$env_var" =~ ^# ]] && continue
     export "$env_var"
   done < "$env_file"
+}
+
+# Logs docker into ECR. Set ECR_REGISTRY (e.g. in ~/.bash_temp_exports) to <account_id>.dkr.ecr.<region>.amazonaws.com
+aws_login () {
+  local registry=${ECR_REGISTRY:?"ECR_REGISTRY is not set"}
+  local region=${AWS_ECR_REGION:-eu-west-1}
+  aws ecr get-login-password --region "$region" | docker login --username AWS --password-stdin "$registry"
 }
 
 lports () {

@@ -136,7 +136,7 @@ symlink_dotfiles () {
 
   local overwrite_all=false backup_all=true skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -name '*.symlink' -not -path '*/.git/*')
   do
     local relative="${src#$DOTFILES_ROOT/}"
     relative="${relative#*/}"  # Strip the topic directory e.g. bash/, claude/ etc.

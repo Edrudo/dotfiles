@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# Git template hook (see init.templateDir in git/gitconfig.symlink).
+# For BioStrand repos with a .pre-commit-config.yaml it installs the real pre-commit hooks
+# on first commit, then runs them.
+#
+
+is_biostrand_repo() {
+  local origin_url
+  origin_url=$(git remote get-url origin 2>/dev/null)
+  [[ "$origin_url" =~ github\.com[/:]BioStrand ]]
+}
+
+if ! is_biostrand_repo || [ ! -f .pre-commit-config.yaml ]; then
+  exit 0
+fi
+
+if ! command -v pre-commit &> /dev/null; then
+  echo "[ERROR] pre-commit is not installed, see the homebrew topic of your dotfiles" >&2
+  exit 1
+fi
+
+if [ ! -f .git/hooks/pre-commit.backup ] || [ .pre-commit-config.yaml -nt .git/hooks/pre-commit.backup ]; then
+  echo "[INFO] Installing/updating pre-commit hooks..."
+  cp .git/hooks/pre-commit .git/hooks/pre-commit.backup
+  pre-commit install
+  if [ ! -f .git/hooks/pre-commit ]; then
+    mv .git/hooks/pre-commit.backup .git/hooks/pre-commit
+  fi
+fi
+
+pre-commit run --all-files

@@ -12,6 +12,8 @@
         excludesfile = ~/.gitignore
         editor = $(which code) --wait
 	    autocrlf = input
+[init]
+        templateDir = ~/.git-template
 [apply]
         whitespace = nowarn
 [mergetool]
