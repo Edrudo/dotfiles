@@ -13,15 +13,16 @@ if test ! $(which brew)
 then
   info "Installing homebrew..."
 
-  # Install the correct Homebrew for each OS type
-  if test "$(uname)" = "Darwin"
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-    PATH="$HOME/.linuxbrew/bin:$PATH"
-  fi
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew "$HOME/.linuxbrew/bin/brew"
+  do
+    if test -x "$brew_bin"
+    then
+      eval "$("$brew_bin" shellenv)"
+      break
+    fi
+  done
 fi
 
 # Update Homebrew and installed packages.

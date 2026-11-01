@@ -1,4 +1,4 @@
-# For testing these dotfiles on a debian docker image
+# For testing these dotfiles on an ubuntu docker image
 #
 # To execute bash on this image, from this dir run:
 #
@@ -10,21 +10,23 @@
 # make install (or otherwise)
 #
 
-FROM debian:wheezy-slim
+FROM ubuntu:24.04
 
-RUN apt-get update && apt-get install -y --force-yes \
-		apt-utils \
-		build-essential \
-		python-setuptools \
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    python3-setuptools \
     gawk \
     nano \
-		ruby \
-		curl \
-		bash \
-		git
+    ruby \
+    curl \
+    bash \
+    git \
+    sudo
 
-RUN useradd --shell /bin/bash default && \
-	mkdir /home/default && chown default:users /home/default
+RUN useradd --shell /bin/bash --create-home default && \
+    echo "default ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/default
 
 COPY . /dotfiles
 RUN chmod -R o+rwx /dotfiles

@@ -54,8 +54,11 @@ homebrew: brew
 
 topics:
 	@source "$(DOTFILES_ROOT)/install_helpers.sh" && \
-	find $(DOTFILES_ROOT) -maxdepth 2 -type f -name 'install.sh' \
-		-not -path $(DOTFILES_ROOT)/homebrew/install.sh -exec echo {} \;
+	for script in $$(find $(DOTFILES_ROOT) -maxdepth 2 -type f -name 'install.sh' \
+		-not -path $(DOTFILES_ROOT)/install.sh \
+		-not -path $(DOTFILES_ROOT)/homebrew/install.sh | sort); do \
+		source "$$script"; \
+	done
 
 run:
 	@source "$(DOTFILES_ROOT)/install_helpers.sh" && \

@@ -106,8 +106,21 @@ dir () {
   mkdir "$1" && cd "$1"
 }
 
+_open () {
+  if command -v open >/dev/null 2>&1; then
+    open "$@"
+  else
+    xdg-open "$@"
+  fi
+}
+
 manpdf () {
-  man -t "$1" | open -f -a /Applications/Preview.app/
+  if [ "$(uname)" = "Darwin" ]; then
+    man -t "$1" | open -f -a /Applications/Preview.app/
+  else
+    local tmp=$(mktemp --suffix=.ps)
+    man -t "$1" > "$tmp" && xdg-open "$tmp"
+  fi
 }
 
 zipit () {
@@ -161,7 +174,7 @@ openrepo () {
   if [[ "$url" == *"git@"* ]]; then
     url=$(echo $url | sed "s|:|/|" | sed "s|git@|https://|")
   fi
-  open $url
+  _open "$url"
 }
 
 grmb () {

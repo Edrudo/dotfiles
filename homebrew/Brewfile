@@ -1,8 +1,5 @@
 cask_args appdir: '/Applications'
 
-tap 'homebrew/bundle'
-tap 'caskroom/cask'
-
 brew 'bash'
 brew 'bash-completion'
 brew 'git'
