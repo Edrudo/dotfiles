@@ -34,7 +34,6 @@ brew 'newman'
 if OS.mac?
   cask_args appdir: '/Applications'
 
-  cask 'iterm2'
   cask 'firefox'
   cask 'slack'
   cask 'visual-studio-code'
