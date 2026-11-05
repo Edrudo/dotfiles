@@ -50,12 +50,6 @@ alias mk='minikube'
 alias k='kubectl'
 alias h='helm'
 
-# Ruby commands.
-alias be='bundle exec'
-alias ber='bundle exec rake'
-alias bert='bundle exec rake test'
-alias berl='bundle exec rails'
-
 # Golang commands.
 alias gmv='go mod vendor'
 alias gmt='go mod tidy'

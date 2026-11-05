@@ -7,7 +7,6 @@ Quick setup of an awesome development environment on any *nix machine.
 - Bash customisations (aliases, functions, git prompt etc.)
 - Homebrew (or Linuxbrew) packages
 - Docker functionality
-- Ruby interpreters (using `rbenv`) and gems
 - Go lang setup ($GOPATH etc.)
 - ...
 
@@ -24,7 +23,6 @@ Linux (using the native package manager):
 - bash
 - gawk
 - curl
-- ruby
 
 ## Usage
 

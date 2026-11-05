@@ -34,9 +34,6 @@
     "[cr]": {
         "editor.tabSize": 2
     },
-    "[rb]": {
-        "editor.tabSize": 2
-    },
     "[go]": {
         "editor.tabSize": 4
     },
@@ -47,12 +44,6 @@
     "rest-client.previewOption": "exchange",
     "go.toolsManagement.autoUpdate": true,
     "update.showReleaseNotes": false,
-    "[ruby]": {
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true,
-        "files.trimTrailingWhitespace": true,
-        "editor.tabSize": 2
-    },
     "[typescript]": {
         "files.insertFinalNewline": true,
         "files.trimFinalNewlines": true,

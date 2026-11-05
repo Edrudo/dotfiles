@@ -8,5 +8,3 @@ bash/bash_temp_aliases.symlink
 
 git/gitconfig.local.symlink
 
-ruby/.bundle
-ruby/Gemfile.lock

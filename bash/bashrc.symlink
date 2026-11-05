@@ -40,7 +40,6 @@ test -d ~/.tfenv/bin && export PATH=~/.tfenv/bin:$PATH
 test -d ~/.proto && export PROTO_HOME=~/.proto && export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH"
 test -d /opt/homebrew/bin && eval "$(/opt/homebrew/bin/brew shellenv)"
 test -d ~/.crenv/bin && export PATH=~/.crenv/bin:$PATH && eval $(crenv init -)
-test -d ~/.rbenv && export PATH="$HOME/.rbenv/bin:$PATH" && eval "$(rbenv init -)"
 test -d ~/.goenv/bin && export GOENV_ROOT="$HOME/.goenv" && export PATH="$GOENV_ROOT/bin:$PATH" && eval "$(goenv init -)"
 
 # Load ps1 behaviour e.g. prompt, colouring etc.
@@ -61,11 +60,6 @@ if test $(which pyenv); then
     export PYENV_ROOT="$HOME/.pyenv"
     command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
-fi
-
-# Added by the 'toys' gem.
-if test $(which toys); then
-  eval "$(toys system bash-completion install)"
 fi
 
 # If miniconda is installed, load the conda shell function (without activating base).

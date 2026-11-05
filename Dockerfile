@@ -19,7 +19,6 @@ RUN apt-get update && apt-get install -y \
     python3-setuptools \
     gawk \
     nano \
-    ruby \
     curl \
     bash \
     git \

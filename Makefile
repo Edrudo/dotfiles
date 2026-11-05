@@ -28,7 +28,7 @@ help:
 	@echo "brew        - Installs homebrew packages."
 	@echo "topics      - Runs all topic installers."
 	@echo "run         - Runs the given topic installer."
-	@echo "              Use 'make run topic=ruby' etc."
+	@echo "              Use 'make run topic=go' etc."
 	@echo "              Note: some installers require certain brew packages."
 	@echo ""
 
