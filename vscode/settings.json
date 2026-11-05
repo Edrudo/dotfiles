@@ -1,65 +1,13 @@
 {
-    "window.newWindowProfile": "Default",
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "editor.fontSize": 18,
-    "go.testOnSave": true,
-    "go.testFlags": ["-count=1"],
-    "workbench.startupEditor": "none",
-    "editor.inlineSuggest.enabled": true,
-    "terminal.explorerKind": "external",
-    "terminal.integrated.fontSize": 16,
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "editor.accessibilitySupport": "off",
-    "editor.detectIndentation": false,
-    "[sass]": {
-        "editor.tabSize": 2
-    },
-    "[css]": {
-        "editor.tabSize": 2
-    },
-    "[html]": {
-        "editor.tabSize": 4
-    },
-    "[javascript]": {
-        "editor.tabSize": 2
-    },
-    "[python]": {
-        "editor.tabSize": 4,
-        "editor.formatOnType": true
-    },
-    "[cr]": {
-        "editor.tabSize": 2
-    },
-    "[go]": {
-        "editor.tabSize": 4
-    },
-    "editor.wordWrap": "on",
-    "security.workspace.trust.untrustedFiles": "open",
-    "editor.trimAutoWhitespace": false,
-    "rest-client.enableTelemetry": false,
-    "rest-client.previewOption": "exchange",
-    "go.toolsManagement.autoUpdate": true,
-    "update.showReleaseNotes": false,
-    "[typescript]": {
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true,
-        "files.trimTrailingWhitespace": true,
-        "editor.tabSize": 2
-    },
-    "[typescriptreact]": {
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true,
-        "files.trimTrailingWhitespace": true,
-        "editor.tabSize": 2
-    },
-    "gitlens.rebaseEditor.ordering": "asc",
-    "editor.largeFileOptimizations": false,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.colorTheme": "Default Dark+",
-    "files.exclude": {
-        "**/.git": false
-    }
+    "redhat.telemetry.enabled": false,
+    "chat.viewSessions.orientation": "stacked",
+    "claudeCode.preferredLocation": "panel",
+    "git.confirmSync": false,
+    "editor.formatOnSave": true,
+    "terminal.integrated.initialHint": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.colorTheme": "One Dark Pro",
+    "claudeCode.hideOnboarding": true,
+    "diffEditor.renderSideBySide": true,
+    "diffEditor.useInlineViewWhenSpaceIsLimited": false
 }
