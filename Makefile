@@ -15,15 +15,14 @@
 SHELL := /bin/bash
 DOTFILES_ROOT := `pwd -P`
 
-.PHONY: help file_system install symlink dotfiles brew homebrew topics run
+.PHONY: help install symlink dotfiles brew homebrew topics run
 
 help:
 	@echo ""
 	@echo "Dotfiles"
 	@echo "--------"
 	@echo ""
-	@echo "install     - Installs file_system, dotfiles, homebrew and topics."
-	@echo "file_system - Creates all necessary files and directories."
+	@echo "install     - Installs dotfiles, homebrew and topics."
 	@echo "dotfiles    - Installs dotfile symlinks."
 	@echo "brew        - Installs homebrew packages."
 	@echo "topics      - Runs all topic installers."
@@ -32,12 +31,8 @@ help:
 	@echo "              Note: some installers require certain brew packages."
 	@echo ""
 
-install: file_system symlink brew topics
+install: symlink brew topics
     # Wrapper for dependant tasks.
-
-file_system:
-	@source "$(DOTFILES_ROOT)/install_helpers.sh" && \
-	source "$(DOTFILES_ROOT)/file_system/install.sh"
 
 symlink:
 	@source "$(DOTFILES_ROOT)/install_helpers.sh" && \

@@ -3,7 +3,7 @@
 # Place any docker bash functions here and they'll get loaded automatically.
 #
 # Docker volumes will be stored locally in $VOLUMES (below).
-# You should ensure this gets created in ./file_system/install.sh
+# Docker creates the subdirectories as needed when they are bind mounted.
 #
 # Any images requiring creds should use: $USERNAME and $PASSWORD where
 # possible for consistency.
@@ -39,9 +39,9 @@ dn () {
 dnv () {
   echo "Nuking volume dirs in $VOLUMES ..."
   local curdir=$(pwd -P)
-  cd $VOLUMES
+  cd "$VOLUMES" || return
   rm -rf *
-  cd $curdir
+  cd "$curdir"
 }
 
 # Removes n number of the latest docker images (see `di` above)
